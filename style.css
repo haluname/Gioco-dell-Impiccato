@@ -1,0 +1,18 @@
+body{
+    height: 100%;
+    margin: 0;
+}
+
+header{
+    height: 20vh;
+}
+
+main{
+    height: 75vh;
+}
+
+footer{
+    position: absolute;
+    bottom: 0;
+    height: 5vh;
+}
