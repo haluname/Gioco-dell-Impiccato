@@ -44,3 +44,7 @@ footer{
 .caselleParola{
     margin: 15px;
 }
+
+.caselleParola span{
+    font-size: 40px;
+}
