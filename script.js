@@ -37,6 +37,7 @@ let caselleParola = document.querySelector(".caselleParola");
 let parolaNascosta = parole[rnd];
 console.log(parolaNascosta)
 divImg.style.backgroundImage = `url("${img[0]}")`
+let nImg = 0;
 
 for(let i=0; i<parolaNascosta.length; i++){
     caselleParola.innerHTML+= "<span>" + " _ " + "</span>"
@@ -57,18 +58,30 @@ btn.addEventListener("click", function(){
         },500)
     }
     else{
+        let cont = 0;
         let lettera = text.value.toLowerCase();
         let display = ""
         
         for (let i = 0; i < parolaNascosta.length; i++) {
             if (lettera === parolaNascosta[i]) {
+                cont++;
                 display += "<span>" + parolaNascosta[i] + "</span>";
             } else {
                 console.log(caselleParola.children[i].outerHTML)
                 display += caselleParola.children[i].outerHTML; //prende il figlio di caselle in posizione i e restituisce ciò che c'era nell html di span di quel figlio
             }
         }
-        
+        if(cont == 0){
+            divImg.style.backgroundImage = `url("${img[nImg+1]}")` 
+            nImg++;
+            if(nImg == 4){
+                setTimeout(function(){
+                    alert("hai perso")
+                    location.reload();
+                },200)
+               
+            }
+        }
         caselleParola.innerHTML = display;
     }
 
